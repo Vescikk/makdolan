@@ -1,0 +1,70 @@
+[{
+ "name":"McMenu",
+ "version":"0.0.1",
+
+ "burgers":[
+     {
+         "name":"BigMac",
+         "price":13.50,
+         "size":"medium"
+     },
+     {
+        "name":"Podwójny McRoyal ostry",
+        "price":16.70,
+        "size":"big"
+    },{
+        "name":"Podwójny McRoyal",
+        "price":13.50,
+        "size":"big"
+    },{
+        "name":"McRoyal",
+        "price":13.50,
+        "size":"medium"
+    },{
+        "name":"Podwójny WieśMac",
+        "price":13.50,
+        "size":"big"
+    },{
+        "name":"WieśMac",
+        "price":13.50,
+        "size":"medium"
+    },{
+        "name":"Filet-O-Fish",
+        "price":13.50,
+        "size":"small"
+    },{
+        "name":"McDouble",
+        "price":13.50,
+        "size":"small"
+    },{
+        "name":"Cheeseburger",
+        "price":13.50,
+        "size":"small"
+    },{
+        "name":"Kurczakburger",
+        "price":13.50,
+        "size":"small"
+    },{
+        "name":"Chikker",
+        "price":13.50,
+        "size":"small"
+    },{
+        "name":"Hamburger",
+        "price":13.50,
+        "size":"small"
+    },{
+        "name":"Jalapenoburger",
+        "price":13.50,
+        "size":"small"
+    }
+    
+
+
+
+]
+
+
+ 
+
+
+}]
