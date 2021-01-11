@@ -1,6 +1,7 @@
-let maxOrderPrice = 30; //prompt('Wprowadź kwotę jaką chcesz przeznaczyć');
+let input = document.querySelector('.maxPriceValue');
+let maxOrderPrice = input.value //prompt('Wprowadź kwotę jaką chcesz przeznaczyć');
+
 maxOrderPrice = Number(maxOrderPrice)
-console.log(maxOrderPrice);
 let moneyLeft = maxOrderPrice;
 let actualBill= 0; 
 let moneyHolder;
@@ -14,8 +15,11 @@ orderBtn.addEventListener('click',orderHandler);
 
 function orderHandler(){
     //prevent max orderpirce === 0
-    maxOrderPrice === 0  ? maxOrderPrice = 30 : console.log('error');
+    maxOrderPrice = input.value 
+    console.log(maxOrderPrice);
 
+    maxOrderPrice === 0  ? maxOrderPrice = 30 : console.log('error');
+    
     fetch('./food.json')
     .then((response) => {
         return response.json()
@@ -163,16 +167,10 @@ function buildOrder(array,typeOfOrder){
     actualBill = 0
     moneyLeft = maxOrderPrice;
 }
-function clearData(array,typeOfOrder,bill,leftToSpend){
+function clearData(){
     typeOfOrderbill = [];
     bill = 0;
     leftToSpend = 0
 }
-function clearOrder(array,typeOfOrder){
-    list = document.querySelectorAll('.order')
-    if(list.length > 1){
-        for(element in list){
-       list[element].remove();
-    }}
-}
+
 
