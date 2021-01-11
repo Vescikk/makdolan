@@ -1,33 +1,42 @@
-
 let maxOrderPrice = prompt('Wprowadź kwotę jaką chcesz przeznaczyć');
-let actualBill= 0;
-let helper;
+maxOrderPrice = Number(maxOrderPrice)
+console.log(maxOrderPrice);
 let moneyLeft = maxOrderPrice;
-let orderBtn;
+let actualBill= 0; 
+let moneyHolder;
+let orderBtn = document.querySelector('.navigation-orderBtn');
 let ul = document.querySelector('.orderPanel-list');
+
 let newLi;
  
 
-fetch('./food.json')
+orderBtn.addEventListener('click',orderHandler);
+
+function orderHandler(){
+    //prevent max orderpirce === 0
+    if(maxOrderPrice === 0){maxOrderPrice = 30;console.log('done')}else{'error'}
+
+    fetch('./food.json')
     .then((response) => {
         return response.json()
     })
     .then((data) => { 
-        generateOrder();
+        createNewOrder(data[0].menu);  
+     })
+}
 
-        
-function generateOrder(){ 
+function createNewOrder(json){  
     let finalOrder = [];
-    const menu = data[0].menu
+    let actualBill= 0;
+    let moneyLeft = maxOrderPrice;
+
+    const menu = json
     genRandOrder(menu,finalOrder);
     completeOrder(menu,finalOrder)
     buildOrder(menu,finalOrder);
-
-}      
-     })
+    clearData(menu,finalOrder,actualBill,moneyLeft)
+}   
     
-
-
 
 function getRandPosArr(array){
   return  Math.floor(Math.random()*array.length);
@@ -81,15 +90,11 @@ function addToBill(product,bill){
 
     //add something like: if cant add any products without exceed the bill break loop
 function genRandOrder(array,typeOfOrder){
-    bigCounter =0
-
     for(value in array){
-        const orderValue =array[value].price;
         addToList(array,typeOfOrder)
         if(Math.floor(actualBill) >= maxOrderPrice - 5){
             if(Math.floor(actualBill) > maxOrderPrice){
-               
-                 actualBill -= typeOfOrder[typeOfOrder.length - 1].price
+                actualBill -= typeOfOrder[typeOfOrder.length - 1].price
                 console.log(`Actual bill is: ${actualBill}zł`)
                 typeOfOrder.pop();
                 console.log(`Actual bill in this case: ${actualBill}`) 
@@ -108,7 +113,6 @@ function genRandOrder(array,typeOfOrder){
                 actualBill -= 21.6;
                 moneyLeft += 21.6;
                 addToList(array,typeOfOrder)
-
             }
         }else if(actualBill >= maxOrderPrice - 10) {                         
             addToList(array,typeOfOrder,'small')
@@ -128,8 +132,8 @@ function completeOrder(array,typeOfOrder)
     let finalBillCheck =0;
  
     for(key in array){
-        holder= array[key].price
-        if(holder < moneyLeft){
+        updatePriceIteration = array[key].price
+        if(updatePriceIteration < moneyLeft){
             typeOfOrder.push(array[key])
             console.log(typeOfOrder)
             console.log('done')
@@ -141,9 +145,8 @@ function completeOrder(array,typeOfOrder)
     for( price in typeOfOrder){
         finalBillCheck += typeOfOrder[price].price
     }
-    helper = finalBillCheck
     console.log(`Finall bill value is equal to ${finalBillCheck}`)
-
+    moneyHolder = finalBillCheck
 }
 
 function buildOrder(array,typeOfOrder){
@@ -153,8 +156,15 @@ function buildOrder(array,typeOfOrder){
         ul.appendChild(newLi)
     }
     newLi = document.createElement('li');
-    newLi.innerHTML =`Twoja wartość zamówienia wynosi ${ helper.toFixed(2)}zł`;
-    ul.appendChild(newLi)
+    newLi.innerHTML =`Twoja wartość zamówienia wynosi ${ moneyHolder.toFixed(2)}zł`;
+    ul.appendChild(newLi)  
+    actualBill = 0
+    moneyLeft = maxOrderPrice;
+}
+function clearData(array,typeOfOrder,bill,leftToSpend){
+    typeOfOrderbill = [];
+    bill = 0;
+    leftToSpend = 0
 }
 
 
