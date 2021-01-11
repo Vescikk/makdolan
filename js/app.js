@@ -1,4 +1,4 @@
-let maxOrderPrice = prompt('Wprowadź kwotę jaką chcesz przeznaczyć');
+let maxOrderPrice = 30//prompt('Wprowadź kwotę jaką chcesz przeznaczyć');
 maxOrderPrice = Number(maxOrderPrice)
 console.log(maxOrderPrice);
 let moneyLeft = maxOrderPrice;
@@ -150,12 +150,15 @@ function completeOrder(array,typeOfOrder)
 }
 
 function buildOrder(array,typeOfOrder){
+    
     for(key in typeOfOrder){
         newLi = document.createElement('li');
         newLi.innerHTML = typeOfOrder[key].name + ' ' + typeOfOrder[key].price+'zł';
         ul.appendChild(newLi)
+        newLi.classList.add('order')
     }
     newLi = document.createElement('li');
+    newLi.classList.add('order')
     newLi.innerHTML =`Twoja wartość zamówienia wynosi ${ moneyHolder.toFixed(2)}zł`;
     ul.appendChild(newLi)  
     actualBill = 0
@@ -166,5 +169,12 @@ function clearData(array,typeOfOrder,bill,leftToSpend){
     bill = 0;
     leftToSpend = 0
 }
-
+function clearOrder(array,typeOfOrder){
+    list = document.querySelectorAll('.order')
+    if(list.length > 1){
+        for(element in list){
+        console.log(list)
+       list[element].remove();
+    }}else{console.log(list);}
+}
 

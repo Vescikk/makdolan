@@ -1,114 +1,179 @@
 [{
- "menu":[
-     {
-         "name":"BigMac",
-         "price":13.5,
-         "size":"medium",
-         "type":"burger"
-        
-     },
-     {
-        "name":"Podwójny McRoyal ostry",
-        "price":16.7,
-        "size":"big",
-        "type":"burger"
+    "menu":[
+        {
+            "name":"BigMac",
+            "price":13.5,
+            "size":"medium",
+            "type":"burger"
+           
+        },{
+           "name":"Podwójny McRoyal ostry",
+           "price":16.7,
+           "size":"big",
+           "type":"burger"
+       },{
+           "name":"Podwójny McRoyal",
+           "price":16.2,
+           "size":"big",
+           "type":"burger"
+       },{
+           "name":"McRoyal",
+           "price":13.4,
+           "size":"medium",
+           "type":"burger"
+       },{
+           "name":"Podwójny WieśMac",
+           "price":16.2,
+           "size":"big",
+           "type":"burger"
+       },{
+           "name":"WieśMac",
+           "price":13.4,
+           "size":"medium",
+           "type":"burger"
+       },{
+           "name":"Filet-O-Fish",
+           "price":8.1,
+           "size":"small",
+           "type":"burger"
+       },{
+           "name":"McDouble",
+           "price":6.8,
+           "size":"small",
+           "type":"burger"
+       },{
+           "name":"Cheeseburger",
+           "price":4.5,
+           "size":"small",
+           "type":"burger"
+       },{
+           "name":"Kurczakburger",
+           "price":5.0,
+           "size":"small",
+           "type":"burger"
+       },{
+           "name":"Chikker",
+           "price":5.5,
+           "size":"small",
+           "type":"burger"
+       },{
+           "name":"Hamburger",
+           "price":4,
+           "size":"small",
+           "type":"burger"
+       },{
+           "name":"Jalapenoburger",
+           "price":4.5,
+           "size":"small",
+           "type":"burger"
+       },{
+           "name":"Burger Drwala",
+           "price":17.4,
+           "size":"big",
+           "type":"burger"
+          
+       },{
+           "name":"Burger Drwala na Ostro",
+           "price":17.9,
+           "size":"big",
+           "type":"burger"
+          
+       },{
+           "name":"Burger Drwala z Kurczakiem",
+           "price":16.9,
+           "size":"big",
+           "type":"burger"
+          
+       },{
+           "name":"Podwójny Burger Drwala",
+           "price":20.4,
+           "size":"big",
+           "type":"burger"
+          
+       },{
+           "name":"Burger Drwala z Żurawiną",
+           "price":17.9,
+           "size":"big",
+           "type":"burger"
+          
+       },{
+           "name":"Burger Supreme Crispy Chicken",
+           "price":16.9,
+           "size":"big",
+           "type":"burger"
+          
+       },{
+           "name":"McNuggets 6szt",
+           "price":11.4,
+           "size":"small",
+           "type":"chickens"
+       },
+       {
+           "name":"McNuggets 9szt",
+           "price":13.6,
+           "size":"medium",
+           "type":"chickens"
+       },
+       {
+           "name":"McNuggets 20szt",
+           "price":21.6,
+           "size":"big",
+           "type":"chickens"
+       },{
+           "name":"Chicken Strips 3szt",
+           "price":11.7,
+           "size":"medium",
+           "type":"chickens"
+       },{
+           "name":"Chicken Strips 5szt",
+           "price":15.2,
+           "size":"medium",
+           "type":"chickens"
+       },{
+           "name":"McWrap Klasyczny",
+           "price":13.6,
+           "size":"medium",
+           "type":"wrap"
+       },{
+           "name":"McWrap Bekon Deluxe",
+           "price":13.9,
+           "size":"medium",
+           "type":"wrap"
+       },{
+        "name":"Duże Frytki",
+        "price":8.9,
+        "size":"small",
+        "type":"fries"
     },{
-        "name":"Podwójny McRoyal",
-        "price":16.2,
-        "size":"big",
-        "type":"burger"
+        "name":"Średnie Frytki",
+        "price":8.2,
+        "size":"small",
+        "type":"fries"
     },{
-        "name":"McRoyal",
-        "price":13.4,
+        "name":"Małe Frytki",
+        "price":7.3,
         "size":"medium",
-        "type":"burger"
+        "type":"wrap"
     },{
-        "name":"Podwójny WieśMac",
-        "price":16.2,
-        "size":"big",
-        "type":"burger"
-    },{
-        "name":"WieśMac",
-        "price":13.4,
-        "size":"medium",
-        "type":"burger"
-    },{
-        "name":"Filet-O-Fish",
-        "price":8.1,
+        "name":"Coca Cola 250ml",
+        "price":3.9,
         "size":"small",
-        "type":"burger"
+        "type":"drink"
     },{
-        "name":"McDouble",
-        "price":6.8,
-        "size":"small",
-        "type":"burger"
-    },{
-        "name":"Cheeseburger",
-        "price":4.5,
-        "size":"small",
-        "type":"burger"
-    },{
-        "name":"Kurczakburger",
-        "price":5.0,
-        "size":"small",
-        "type":"burger"
-    },{
-        "name":"Chikker",
+        "name":"Coca Cola 400ml",
         "price":5.5,
         "size":"small",
-        "type":"burger"
+        "type":"drink"
     },{
-        "name":"Hamburger",
-        "price":4,
+        "name":"Coca Cola 500ml",
+        "price":6,
         "size":"small",
-        "type":"burger"
-    },{
-        "name":"Jalapenoburger",
-        "price":4.5,
-        "size":"small",
-        "type":"burger"
-    },{
-        "name":"McNuggets 6szt",
-        "price":11.4,
-        "size":"small",
-        "type":"chickens"
-    },
-    {
-        "name":"McNuggets 9szt",
-        "price":13.6,
-        "size":"medium",
-        "type":"chickens"
-    },
-    {
-        "name":"McNuggets 20szt",
-        "price":21.6,
-        "size":"big",
-        "type":"chickens"
-    },{
-        "name":"Chicken Strips 3szt",
-        "price":11.7,
-        "size":"medium",
-        "type":"chickens"
-    },{
-        "name":"Chicken Strips 5szt",
-        "price":15.2,
-        "size":"medium",
-        "type":"chickens"
-    },{
-        "name":"McWrap Klasyczny",
-        "price":13.6,
-        "size":"medium",
-        "type":"wrap"
-    },{
-        "name":"McWrap Bekon Deluxe",
-        "price":13.9,
-        "size":"medium",
-        "type":"wrap"
+        "type":"drink"
     }
-]}
-
-
- 
-
-
-]
+   ]}
+   
+   
+    
+   
+   
+   ]
