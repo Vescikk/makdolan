@@ -22,6 +22,30 @@ body {
     -moz-box-shadow: -2px 0px 19px -6px rgba(0, 0, 0, 0.75);
     box-shadow: -2px 0px 19px -6px rgba(0, 0, 0, 0.75); }
 
+.input-price-box {
+  font-size: 30px;
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin-bottom: 15px; }
+
+.maxPriceValue {
+  align-self: center;
+  border-radius: 25px;
+  padding: 10px 0;
+  font-size: 35px;
+  text-align: center;
+  width: 30%;
+  border: transparent;
+  -webkit-box-shadow: -2px 0px 19px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -2px 0px 19px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: -2px 0px 19px -6px rgba(0, 0, 0, 0.75); }
+
+.order {
+  font-size: 15px; }
+
 .navigation {
   width: 100%;
   padding: 15px;
