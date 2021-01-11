@@ -1,4 +1,4 @@
-let maxOrderPrice = 30//prompt('Wprowadź kwotę jaką chcesz przeznaczyć');
+let maxOrderPrice = 30; //prompt('Wprowadź kwotę jaką chcesz przeznaczyć');
 maxOrderPrice = Number(maxOrderPrice)
 console.log(maxOrderPrice);
 let moneyLeft = maxOrderPrice;
@@ -14,7 +14,7 @@ orderBtn.addEventListener('click',orderHandler);
 
 function orderHandler(){
     //prevent max orderpirce === 0
-    if(maxOrderPrice === 0){maxOrderPrice = 30;console.log('done')}else{'error'}
+    maxOrderPrice === 0  ? maxOrderPrice = 30 : console.log('error');
 
     fetch('./food.json')
     .then((response) => {
@@ -60,6 +60,7 @@ function genSpecOrder(actPrice,maxPrice,array,bigList,mediumList,finalList){
 function addToList(array,list,size){
     for(key in array){
         order = array[getRandPosArr(array)]
+        //try refactor to switch case
         if(size && order.size === size){
             list.push(order)
             console.log(list)
@@ -70,28 +71,31 @@ function addToList(array,list,size){
             console.log(list) 
             addToBill(order,actualBill)      
             break
+        }else if(list.length === 0){
+            console.log(`List was empty`);
+            list.push(order)
+            addToBill(order,actualBill) 
+            console.log(list)
         }else{
             console.error(`Specific type chosen but its not equal to ${size}`)
+            }   
         }
     }  
- if(list.length === 0){
-    console.log(`List was empty`);
-    list.push(order)
-    addToBill(order,actualBill) 
-    console.log(list)
- }
-}
 
+    
     //add every product price to final order
 function addToBill(product,bill){
     actualBill += product.price;
     console.log(`Actual bill is: ${actualBill}zł`)
     }
 
-    //add something like: if cant add any products without exceed the bill break loop
+    //add  genertate order based on a random products
 function genRandOrder(array,typeOfOrder){
+    //iterate on very product in json
     for(value in array){
         addToList(array,typeOfOrder)
+
+        //100% have to refactor but work for now xD can be done better
         if(Math.floor(actualBill) >= maxOrderPrice - 5){
             if(Math.floor(actualBill) > maxOrderPrice){
                 actualBill -= typeOfOrder[typeOfOrder.length - 1].price
@@ -100,18 +104,20 @@ function genRandOrder(array,typeOfOrder){
                 console.log(`Actual bill in this case: ${actualBill}`) 
                 console.log('break over maxOrderPrice')
                 addToList(array,typeOfOrder,'small')
-
                 break
             }else{
                 console.log('break')
                 break
             }
-        }else if(Math.floor(actualBill) >= maxOrderPrice - 20){
+        }
+        //in low max Prices prevent to add big last item and get overpriced
+        else if(Math.floor(actualBill) >= maxOrderPrice - 20){
+            priceOfLastEl = typeOfOrder[typeOfOrder.length - 1].price;
             console.log('nuggets')
             if(typeOfOrder[typeOfOrder.length - 1].price > 19){
                 typeOfOrder.pop();
-                actualBill -= 21.6;
-                moneyLeft += 21.6;
+                typeOfOrder.length === 0 ? addToList(array,typeOfOrder) :actualBill -= priceOfLastEl;
+                moneyLeft += priceOfLastEl;
                 addToList(array,typeOfOrder)
             }
         }else if(actualBill >= maxOrderPrice - 10) {                         
@@ -131,16 +137,9 @@ function completeOrder(array,typeOfOrder)
     console.log(`Money left: ${moneyLeft}zł`)
     let finalBillCheck =0;
  
+    //fix logic sometimes can add one more product
     for(key in array){
-        updatePriceIteration = array[key].price
-        if(updatePriceIteration < moneyLeft){
-            typeOfOrder.push(array[key])
-            console.log(typeOfOrder)
-            console.log('done')
-            break
-        }else{
-            console.log('error')
-        }   
+        if(array[key].price < moneyLeft){typeOfOrder.push(array[key]); break;}
     }
     for( price in typeOfOrder){
         finalBillCheck += typeOfOrder[price].price
@@ -173,8 +172,7 @@ function clearOrder(array,typeOfOrder){
     list = document.querySelectorAll('.order')
     if(list.length > 1){
         for(element in list){
-        console.log(list)
        list[element].remove();
-    }}else{console.log(list);}
+    }}
 }
 
