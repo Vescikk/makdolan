@@ -1,11 +1,160 @@
+
+let maxOrderPrice = prompt('Wprowadź kwotę jaką chcesz przeznaczyć');
+let actualBill= 0;
+let helper;
+let moneyLeft = maxOrderPrice;
+let orderBtn;
+let ul = document.querySelector('.orderPanel-list');
+let newLi;
+ 
+
 fetch('./food.json')
     .then((response) => {
         return response.json()
     })
-    .then((data) => {
-        for(let i =0; i < data[0].burgers.length;i++){
-            console.log(data[0].burgers[i].name)
-            console.log(data[0].burgers[i].price)
+    .then((data) => { 
+        generateOrder();
 
+        
+function generateOrder(){ 
+    let finalOrder = [];
+    const menu = data[0].menu
+    genRandOrder(menu,finalOrder);
+    completeOrder(menu,finalOrder)
+    buildOrder(menu,finalOrder);
+
+}      
+     })
+    
+
+
+
+function getRandPosArr(array){
+  return  Math.floor(Math.random()*array.length);
+}
+
+//fix// gen spec order depends on actual price and so on
+function genSpecOrder(actPrice,maxPrice,array,bigList,mediumList,finalList){
+    finalList.push(bigList[getRandPosArr(bigList)])
+    actualBill += finalList[0].price
+    if(actPrice < maxPrice){
+        addToList(array,mediumList,'medium')
+        finalList.push(mediumList[getRandPosArr(mediumList)])
+        actualBill += finalList[1].price 
+
+    }
+}
+
+//add product to list  product array=fetch from json
+//we can specify size or leave it unset to add random product
+//refactor to switch make function short as possible
+function addToList(array,list,size){
+    for(key in array){
+        order = array[getRandPosArr(array)]
+        if(size && order.size === size){
+            list.push(order)
+            console.log(list)
+            addToBill(order,actualBill)      
+            break  
+        }else if(size === undefined){
+            list.push(order)
+            console.log(list) 
+            addToBill(order,actualBill)      
+            break
+        }else{
+            console.error(`Specific type chosen but its not equal to ${size}`)
         }
-    })
+    }  
+ if(list.length === 0){
+    console.log(`List was empty`);
+    list.push(order)
+    addToBill(order,actualBill) 
+    console.log(list)
+ }
+}
+
+    //add every product price to final order
+function addToBill(product,bill){
+    actualBill += product.price;
+    console.log(`Actual bill is: ${actualBill}zł`)
+    }
+
+    //add something like: if cant add any products without exceed the bill break loop
+function genRandOrder(array,typeOfOrder){
+    bigCounter =0
+
+    for(value in array){
+        const orderValue =array[value].price;
+        addToList(array,typeOfOrder)
+        if(Math.floor(actualBill) >= maxOrderPrice - 5){
+            if(Math.floor(actualBill) > maxOrderPrice){
+               
+                 actualBill -= typeOfOrder[typeOfOrder.length - 1].price
+                console.log(`Actual bill is: ${actualBill}zł`)
+                typeOfOrder.pop();
+                console.log(`Actual bill in this case: ${actualBill}`) 
+                console.log('break over maxOrderPrice')
+                addToList(array,typeOfOrder,'small')
+
+                break
+            }else{
+                console.log('break')
+                break
+            }
+        }else if(Math.floor(actualBill) >= maxOrderPrice - 20){
+            console.log('nuggets')
+            if(typeOfOrder[typeOfOrder.length - 1].price > 19){
+                typeOfOrder.pop();
+                actualBill -= 21.6;
+                moneyLeft += 21.6;
+                addToList(array,typeOfOrder)
+
+            }
+        }else if(actualBill >= maxOrderPrice - 10) {                         
+            addToList(array,typeOfOrder,'small')
+            console.log('small')
+        }else{
+            addToList(array,typeOfOrder)
+            console.log('else')
+        }           
+    }   
+}
+
+function completeOrder(array,typeOfOrder)
+{
+    moneyLeft -= actualBill
+    console.log(`Money left: ${actualBill}zł`)
+    console.log(`Money left: ${moneyLeft}zł`)
+    let finalBillCheck =0;
+ 
+    for(key in array){
+        holder= array[key].price
+        if(holder < moneyLeft){
+            typeOfOrder.push(array[key])
+            console.log(typeOfOrder)
+            console.log('done')
+            break
+        }else{
+            console.log('error')
+        }   
+    }
+    for( price in typeOfOrder){
+        finalBillCheck += typeOfOrder[price].price
+    }
+    helper = finalBillCheck
+    console.log(`Finall bill value is equal to ${finalBillCheck}`)
+
+}
+
+function buildOrder(array,typeOfOrder){
+    for(key in typeOfOrder){
+        newLi = document.createElement('li');
+        newLi.innerHTML = typeOfOrder[key].name + ' ' + typeOfOrder[key].price+'zł';
+        ul.appendChild(newLi)
+    }
+    newLi = document.createElement('li');
+    newLi.innerHTML =`Twoja wartość zamówienia wynosi ${ helper.toFixed(2)}zł`;
+    ul.appendChild(newLi)
+}
+
+
