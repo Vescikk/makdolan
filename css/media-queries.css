@@ -1,0 +1,68 @@
+/* Big desktop to 1400px (widths smaller taht the 1140px row) */
+@media only screen and (max-width: 1440px) {
+    
+}
+@media only screen and (min-width: 1441px) {
+  
+}
+
+
+/* Small tablet to big tablet: from 768px to 1023px */
+@media only screen and (max-width: 1025px) {
+    
+}
+
+
+/* Small phones to small tablets: from 481px to 767px */
+@media only screen and (max-width: 767px) {
+
+
+}
+
+
+
+
+/* Small phones: from 0 to 480px */
+@media only screen and (max-width: 450px) {
+   .col-2{
+       display: none;
+   }
+   .col-1{   width: 100% ;
+   }
+   .header{
+       display: inline; 
+   }
+   .header-heading{
+       width: 100%;
+       font-size: 4rem;  
+   }
+   .main-button{
+    padding: 5px 5px;  
+    font-size: .8rem;
+
+   }
+   .aboutUs-list{
+       font-size: 20px;
+   }
+   .aboutUs-ilustration{
+       display: none;
+   }
+   .aboutUs-button{
+    font-size: 15px; 
+  }
+  .aboutUs-heading{
+      font-size: 4.5rem;
+  }
+  .listNumber{
+      align-self: center;
+    text-align: center;
+    padding: 2px 10px 6px 10px;
+    margin-bottom: 20px;
+  }
+.aboutUs-list li {
+    display: flex;
+    flex-direction: column;
+}
+
+}
+

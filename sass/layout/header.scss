@@ -1,8 +1,9 @@
 .navigation{
-width: 100%;
+ background-color: white;
+ width: 100%;
 padding: 15px;
  line-height: 70px ;
-
+z-index: 1;
 display: flex;
 justify-content: space-between;
 flex-wrap: wrap;
@@ -16,3 +17,31 @@ position: relative;
     height: 55px; 
 }
 } 
+
+.header{
+    display: flex;
+    flex-direction: row;
+
+    &-col{
+        height: 100vh;
+        width: 50%;
+    }
+}
+.col-1{
+    margin-top: 50px; 
+    margin-left: 20px; 
+     padding: 20px ;
+}
+.col-2 img{ 
+  height: 110%;  
+  position: absolute;  
+  right: 0;   
+}
+.sticky{
+    position: fixed;
+    top: 0;
+    width: 100%;
+             -webkit-box-shadow: -2px 0px 19px -6px rgba(0,0,0,0.75); 
+            -moz-box-shadow: -2px 0px 19px -6px rgba(0,0,0,0.75);
+            box-shadow: -2px 0px 19px -6px rgba(0,0,0,0.75);  
+}

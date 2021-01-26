@@ -4,27 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media-queries.css">
     <title>Makdolan</title>
 
 </head>
 <body>
-   <nav class="navigation">
+   <nav class="navigation ">
        <button class="navigation-menu hamburger">
            <span class="hamburger__box">
                <span class="hamburger__inner"></span>
            </span>
        </button>
        <img src="img/McDonalds-Logo 1.png" alt="logo" class="navigation-logo">
-       <button class="navigation-orderBtn">STWÓRZ ZAMÓWIENIE</button>
+       <button class="navigation-orderBtn main-button">STWÓRZ ZAMÓWIENIE</button>
    </nav>
-<main class="orderPanel">
+<header class="header">
+    <div class="header-col col-1">
+        <h1 class="header-heading">Nie wiesz na co masz ochote?</h1>
+        <button  class=" aboutUs-button main-button"><a href="#aboutUs">Dowiedz się więcej!</a></button>
+    </div>
+    <div class="header-col col-2"><img src="css/img/imgv2.png" alt=""></div> 
+
+</header>
+<section id="aboutUs" class="aboutUs">
+    <h2 class="aboutUs-heading">Jak działamy ?</h2>
+
+    <ul class="aboutUs-list">
+        <li> <span class="listNumber">1</span>   Lorem ipsum dolor sit amet, consectetur adipiscing elit. </li>
+        <li><span class="listNumber">2</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. </li>
+        <li><span class="listNumber">3</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. </li>
+    </ul>
+ <img class="aboutUs-ilustration" src="img/ilustration.svg" alt="ilustration">
+</section>
+
+
+
+<section class="orderPanel">
     <div class="input-price-box">
         <label for="input">Wprowadz cene</label>
         <input class="maxPriceValue" type="number">
         <ul id="ul" class="orderPanel-list"></ul>
     </div>
 
-</main>
+</section>
    <script src="js/app.js"></script>
+   <script src="js/dom.js"></script>
 </body>
 </html>
