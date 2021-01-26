@@ -11,25 +11,26 @@ let ul = document.querySelector('.orderPanel-list');
 let newLi;
  
 
-orderBtn.addEventListener('click',orderHandler);
+orderBtn.addEventListener('click',btnHandler);
 
 
-function orderHandler(){
+function btnHandler(){
     fetch('./food.json')
     .then((response) => {
         return response.json()
     })
     .then((data) => { 
-        createNewOrder(data[0].menu);
+        orderHandler(data[0].menu);
         
      })
 }
 
-function createNewOrder(json){  
+//integration of all func
+function orderHandler(json){  
     const menu = json
     clearData();
     removeElements(ul,"order");
-    testOrder(menu,finalOrder);
+    createOrder(menu,finalOrder);
     buildOrder(finalOrder);
 }   
     
@@ -45,7 +46,6 @@ function clearData(){
 }
 //add product to list  product array=fetch from json
 //we can specify size or leave it unset to add random product
-//refactor to switch to make function short as possible
 function addToList(json,typeOfOrder,order,size){
     for(key in json){
         //try refactor to switch case
@@ -60,24 +60,25 @@ function addToList(json,typeOfOrder,order,size){
         }else{console.error(`Specific s chosen but its not equal to ${size}`)}   
         }
     }  
-    function testOrder(json,typeOfOrder){
+
+
+    function createOrder(json,typeOfOrder){
         maxOrderPrice = input.value;
         let moneyLeft = maxOrderPrice;
-            for(items in json){
+            for(items in json){  //fill the list in products
                 if(Math.floor(actualBill) < maxOrderPrice){
                     order = json[getRandPosArr(json)]
                     addToList(json,typeOfOrder,order);
                     addToBill(order,typeOfOrder)
                 }
-            }
+            }//while actbill is over the max price delete last item till actbill < maxprice
            while(Math.floor(actualBill) > maxOrderPrice){
             actualBill -=  typeOfOrder[typeOfOrder.length -1].price 
             typeOfOrder.pop();
             addToBill(order,typeOfOrder)
            }
-           
             moneyLeft -= actualBill
-            for(items in json){
+            for(items in json){//check does we can add something more to bill
                 if(json[items].price < moneyLeft){
                     typeOfOrder.push(json[items])
                     actualBill += json[items].price;
@@ -85,12 +86,6 @@ function addToList(json,typeOfOrder,order,size){
                 }
             }
     }
-       
-
-
-
-
-    
     //add every product price to final order
 function addToBill(product,typeOfOrder){
     actualBill = 0
@@ -98,12 +93,7 @@ function addToBill(product,typeOfOrder){
         actualBill +=  typeOfOrder[key].price 
     }
     }
-
-    
-
-
-
-function buildOrder(typeOfOrder){
+function buildOrder(typeOfOrder){//need to be refactored
     for(key in typeOfOrder){
         newLi = document.createElement('li');
         newLi.innerHTML = typeOfOrder[key].name + ' ' + typeOfOrder[key].price+'zł';
@@ -117,7 +107,6 @@ function buildOrder(typeOfOrder){
     actualBill = 0
     moneyLeft = maxOrderPrice;
 }
-
 function removeElements(parent,child){
    let childs = document.querySelectorAll(`.${child}`);
   if(childs.length - 1 >= 1){
@@ -126,5 +115,4 @@ function removeElements(parent,child){
     }
   }else{
 }
-
 }
