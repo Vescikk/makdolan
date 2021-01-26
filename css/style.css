@@ -88,6 +88,9 @@ body {
 .orderPanel {
   height: 100vh; }
 
+.input-price-box {
+  margin-top: 300px; }
+
 .navigation {
   background-color: white;
   width: 100%;
