@@ -6,7 +6,7 @@ let actualBill= 0;
 
 
 let moneyHolder;
-let orderBtn = document.querySelector('.navigation-orderBtn');
+let orderBtn = document.querySelector('.orderPanel-btn');
 let ul = document.querySelector('.orderPanel-list');
 let newLi;
  

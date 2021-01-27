@@ -16,7 +16,7 @@
            </span>
        </button>
        <img src="img/McDonalds-Logo 1.png" alt="logo" class="navigation-logo">
-       <button class="navigation-orderBtn main-button">STWÓRZ ZAMÓWIENIE</button>
+       <button class="navigation-orderBtn main-button"><a href="#genOrder">ZAMÓWIENIE</a></button>
    </nav>
 <header class="header">
     <div class="header-col col-1">
@@ -39,10 +39,11 @@
 
 
 
-<section class="orderPanel">
+<section id="genOrder" class="orderPanel">
     <div class="input-price-box">
         <label for="input">Wprowadz cene</label>
         <input class="maxPriceValue" type="number">
+        <button class="orderPanel-btn main-button"><a href="#genOrder">STWÓRZ ZAMÓWIENIE</a></button>
         <ul id="ul" class="orderPanel-list"></ul>
     </div>
 
