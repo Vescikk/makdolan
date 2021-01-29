@@ -107,22 +107,22 @@ function buildOrder(typeOfOrder){//need to be refactored
         orderType = typeOfOrder[key].type;
         switch (orderType) {
             case'burger':
-                img.src = "../img/hamburger.svg";
+                img.src = "img/hamburger.svg";
             break;
             case 'chickens':
-                img.src = "../img/nuggets.svg";
+                img.src = "img/nuggets.svg";
             break;
             case 'meal':
-                img.src = "../img/meal2.svg";
+                img.src = "img/meal2.svg";
             break;
             case 'drink':
-                img.src = "../img/coke.svg";
+                img.src = "img/coke.svg";
             break;
             case 'fries':
-                img.src = "../img/fries.svg";
+                img.src = "img/fries.svg";
             break;
             case 'wrap':
-                img.src = "../img/burrito.svg";
+                img.src = "img/burrito.svg";
             break;
         }
         span.innerHTML = typeOfOrder[key].name + ' ' + typeOfOrder[key].price.toFixed(2)+'zł';
@@ -135,7 +135,7 @@ function buildOrder(typeOfOrder){//need to be refactored
 
     totalOrderImg = document.createElement('img');
     totalOrderImg .classList.add('orderSection-list-icon');
-    totalOrderImg .src = "../img/money.svg";
+    totalOrderImg .src = "img/money.svg";
 
 
 
