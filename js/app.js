@@ -1,4 +1,4 @@
-let input = document.querySelector('.maxPriceValue');
+let input = document.querySelector('.orderSection-input');
 let maxOrderPrice = 30;
 maxOrderPrice = Number(maxOrderPrice)
 let finalOrder = [];
@@ -6,9 +6,9 @@ let actualBill= 0;
 
 
 let moneyHolder;
-let orderBtn = document.querySelector('.orderPanel-btn');
-let ul = document.querySelector('.orderPanel-list');
-let newLi;
+let orderBtn = document.querySelector('.orderSection-btn');
+let ul = document.querySelector('.orderSection-list');
+let newLi; 
  
 
 orderBtn.addEventListener('click',btnHandler);
@@ -96,14 +96,55 @@ function addToBill(product,typeOfOrder){
 function buildOrder(typeOfOrder){//need to be refactored
     for(key in typeOfOrder){
         newLi = document.createElement('li');
-        newLi.innerHTML = typeOfOrder[key].name + ' ' + typeOfOrder[key].price+'zł';
-        ul.appendChild(newLi)
         newLi.classList.add('order')
+        span = document.createElement('span');
+        span.classList.add('orderSection-order');
+
+        img = document.createElement('img');
+
+        img.classList.add('orderSection-list-icon');
+
+        orderType = typeOfOrder[key].type;
+        switch (orderType) {
+            case'burger':
+                img.src = "../img/hamburger.svg";
+            break;
+            case 'chickens':
+                img.src = "../img/nuggets.svg";
+            break;
+            case 'meal':
+                img.src = "../img/meal2.svg";
+            break;
+            case 'drink':
+                img.src = "../img/coke.svg";
+            break;
+            case 'fries':
+                img.src = "../img/fries.svg";
+            break;
+            case 'wrap':
+                img.src = "../img/burrito.svg";
+            break;
+        }
+        span.innerHTML = typeOfOrder[key].name + ' ' + typeOfOrder[key].price.toFixed(2)+'zł';
+        ul.appendChild(newLi)
+        newLi.appendChild(img);
+        newLi.appendChild(span);
     }
-    newLi = document.createElement('li');
-    newLi.classList.add('order')
-    newLi.innerHTML =`Twoja wartość zamówienia wynosi ${ actualBill.toFixed(2)}zł`;
-    ul.appendChild(newLi)  
+    totalOrderLi = document.createElement('li');
+    totalOrderLi.classList.add('order')
+
+    totalOrderImg = document.createElement('img');
+    totalOrderImg .classList.add('orderSection-list-icon');
+    totalOrderImg .src = "../img/money.svg";
+
+
+
+    totalOrderValue = document.createElement('span');
+
+    totalOrderValue.innerHTML =`Twoja wartość zamówienia wynosi ${ actualBill.toFixed(2)}zł`;
+    totalOrderLi.appendChild(totalOrderImg);
+    totalOrderLi.appendChild(totalOrderValue);
+    ul.appendChild(totalOrderLi)  
     actualBill = 0
     moneyLeft = maxOrderPrice;
 }

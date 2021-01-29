@@ -1,0 +1,14 @@
+.orderSection{
+
+    &-input,
+    -input:active{
+        border-radius: 25px; 
+        border: black solid 1px;
+        outline: transparent;
+        height: 50px; 
+        width: 25%; 
+        align-self: center; 
+        text-align: center;
+        font-size: 2rem;
+    }
+} 

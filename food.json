@@ -153,7 +153,7 @@
         "name":"Małe Frytki",
         "price":7.3,
         "size":"medium",
-        "type":"wrap"
+        "type":"fries"
     },{
         "name":"Coca Cola 250ml",
         "price":3.9,
@@ -170,54 +170,10 @@
         "size":"small",
         "type":"drink"
     },{
-        "name":"Burger Drwala w zestawie",
-        "price":23.40,
-        "size":"big",
-        "products":{
-            "name":"Burger Drwala",
-            "drink":"Coca Cola 400ml",
-            "extra":"Średnie Frytki"
-        }
-    },{
-        "name":"Burger Drwala w zestawie na ostro",
-        "price":23.90,
-        "size":"big",
-        "products":{
-            "name":"Burger Drwala na Ostro", 
-            "drink":"Coca Cola 400ml",
-            "extra":"Średnie Frytki"
-        }
-    },{
-        "name":"Burger Drwala z Kurczakiem w zestawie",
-        "price":22.90,
-        "size":"big",
-        "products":{
-            "name":"Burger Drwala z Kurczakiem",
-            "drink":"Coca Cola 400ml",
-            "extra":"Średnie Frytki"
-        }
-    },{
-        "name":"Podwójny Burger Drwala w zestawie",
-        "price":26.40,
-        "size":"big",
-        "products":{
-            "name":"Podwójny Burger Drwala",
-            "drink":"Coca Cola 400ml",
-            "extra":"Średnie Frytki"
-        }
-    },{
-        "name":"Burger Drwala z Żurawiną w zestawie",
-        "price":23.90,
-        "size":"big",
-        "products":{
-            "name":"Podwójny Burger Drwala",
-            "drink":"Coca Cola 400ml",
-            "extra":"Średnie Frytki"
-        }
-    },{
         "name":"Podwójny McRoyal ostry w zestawie",
         "price":22.90,
         "size":"big",
+        "type":"meal",
         "products":{
             "name":"Podwójny McRoyal ostry",
             "drink":"Coca Cola 400ml",
@@ -227,6 +183,7 @@
         "name":"BigMac w zestawie",
         "price":20.40,
         "size":"big",
+        "type":"meal",
         "products":{
             "name":"BigMac",
             "drink":"Coca Cola 400ml",
@@ -236,6 +193,7 @@
         "name":"Podwójny McRoyal w zestawie",
         "price":20.40,
         "size":"big",
+        "type":"meal",
         "products":{
             "name":"Podwójny McRoyal",
             "drink":"Coca Cola 400ml",
@@ -245,6 +203,7 @@
         "name":"McRoyal w zestawie",
         "price":19.90,
         "size":"big",
+        "type":"meal",
         "products":{
             "name":"McRoyal",
             "drink":"Coca Cola 400ml",
@@ -254,6 +213,7 @@
         "name":"Podwójny WieśMac w zestawie",
         "price":22.50,
         "size":"big",
+        "type":"meal",
         "products":{
             "name":"Podwójny WieśMac",
             "drink":"Coca Cola 400ml",
@@ -263,6 +223,7 @@
         "name":"WieśMac w zestawie",
         "price":19.90,
         "size":"big",
+        "type":"meal",
         "products":{
             "name":"WieśMac",
             "drink":"Coca Cola 400ml",
@@ -272,6 +233,7 @@
         "name":"McWrap Klasyczny w zestawie",
         "price":20.90,
         "size":"big",
+        "type":"meal",
         "products":{
             "name":"McWrap Klasyczny",
             "drink":"Coca Cola 400ml",
@@ -281,6 +243,7 @@
         "name":"McWrap Bekon Deluxe w zestawie",
         "price":20.90,
         "size":"big",
+        "type":"meal",
         "products":{
             "name":"McWrap Bekon Deluxe",
             "drink":"Coca Cola 400ml",
@@ -290,6 +253,7 @@
         "name":"Kurczakburger w zestawie",
         "price":19.60,
         "size":"big",
+        "type":"meal",
         "products":{
             "name":"Kurczakburger",
             "drink":"Coca Cola 400ml",

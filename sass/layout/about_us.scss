@@ -1,0 +1,28 @@
+.aboutUs{
+    position: relative;
+    height: 100vh;
+    &-heading{ 
+        position: relative;
+        top: 120px;  
+        font-size: 5rem; 
+        text-align: center;
+    }
+
+    &-list{
+        text-align: center;  
+        margin-top: 150px;
+        & li {
+            padding: 22px;     
+            position: relative;
+           }
+    }
+    & img{
+        margin: 0;
+        position: absolute; 
+        bottom: 100px;   
+        left: 50px;  
+        height: 250px; 
+
+    }
+
+} 

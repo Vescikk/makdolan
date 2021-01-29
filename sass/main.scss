@@ -2,6 +2,10 @@
 @import "abstract/mixins.scss";
 @import "base/utility.scss";
 @import "base/typography.scss";
+@import "components/buttons.scss";   
+@import "components/lists.scss";   
+@import "components/input.scss";   
 @import "layout/page.scss";
 @import "layout/header.scss";
-@import "components/buttons.scss"; 
+@import "layout/about_us.scss";
+@import "layout/orderSection.scss";
