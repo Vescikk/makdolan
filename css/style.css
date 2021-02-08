@@ -101,6 +101,9 @@ body {
   background-color: #FFC72C;
   border-radius: 50%; }
 
+.order {
+  z-index: d; }
+
 .orderSection-input,
 .orderSection -input:active {
   border-radius: 25px;
@@ -195,15 +198,13 @@ body {
   background-position-y: 90%;
   background-position-x: 90%;
   background-size: 25%;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  border-top: 1px solid #FFC72C; }
   .orderSection-price-box {
     text-align: center;
-    position: absolute;
     display: flex;
+    margin-top: 70px;
     flex-direction: column;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%);
     width: 100%; }
   .orderSection-list {
     display: flex;
@@ -229,3 +230,10 @@ body {
     .orderSection-list-icon {
       align-self: center;
       height: 90px; }
+
+.footer {
+  width: 100%;
+  height: 70px;
+  background-color: #FFC72C;
+  text-align: center;
+  line-height: 70px; }

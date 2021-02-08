@@ -99,9 +99,7 @@ function buildOrder(typeOfOrder){//need to be refactored
         newLi.classList.add('order')
         span = document.createElement('span');
         span.classList.add('orderSection-order');
-
         img = document.createElement('img');
-
         img.classList.add('orderSection-list-icon');
 
         orderType = typeOfOrder[key].type;
@@ -141,7 +139,7 @@ function buildOrder(typeOfOrder){//need to be refactored
 
     totalOrderValue = document.createElement('span');
 
-    totalOrderValue.innerHTML =`Twoja wartość zamówienia wynosi ${ actualBill.toFixed(2)}zł`;
+    totalOrderValue.innerHTML =` Wartość zamówienia: ${ actualBill.toFixed(2)}zł`;
     totalOrderLi.appendChild(totalOrderImg);
     totalOrderLi.appendChild(totalOrderValue);
     ul.appendChild(totalOrderLi)  

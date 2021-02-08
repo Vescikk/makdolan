@@ -1,12 +1,10 @@
 .orderPanel{
-
-
     &-list{
         display: flex;
         flex-direction: column;
         text-align: center; 
         & li{ 
-            list-style: none;
+            list-style: none; 
             align-self: center; 
             margin: 5px; 
             border-radius: 10px;

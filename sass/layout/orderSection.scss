@@ -1,20 +1,18 @@
 .orderSection{
-    height: 100vh;
+    height: 100vh; 
     position: relative;
     background: url(img/ordersec.svg);
     background-position-y: 90%;   
     background-position-x: 90%;     
     background-size: 25%;    
     background-repeat: no-repeat;
+border-top: 1px solid $main-orange ; 
 
     &-price-box{  
         text-align: center;
-        position: absolute;
         display: flex;
+        margin-top: 70px;    
         flex-direction: column;
-        top:20%; 
-        left: 50%;
-        transform: translate(-50%);
         width: 100%;    
 
     }
@@ -39,7 +37,7 @@
             -webkit-box-shadow: -2px 0px 19px -6px rgba(0,0,0,0.75); 
             -moz-box-shadow: -2px 0px 19px -6px rgba(0,0,0,0.75);
             box-shadow: -2px 0px 19px -6px rgba(0,0,0,0.75);
-
+            
         }
         &-icon{ 
             align-self: center; 
@@ -47,3 +45,5 @@
         }
     }
 } 
+
+
