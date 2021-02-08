@@ -101,8 +101,8 @@ body {
   background-color: #FFC72C;
   border-radius: 50%; }
 
-.order {
-  z-index: d; }
+.orderSection-list li {
+  justify-content: space-between; }
 
 .orderSection-input,
 .orderSection -input:active {
@@ -220,16 +220,22 @@ body {
       list-style: none;
       align-self: center;
       border-radius: 25px;
-      margin: 5px 15px;
+      margin: 20px 15px;
       padding: 10px 20px;
       height: 190px;
       width: 200px;
       -webkit-box-shadow: -2px 0px 19px -6px rgba(0, 0, 0, 0.75);
       -moz-box-shadow: -2px 0px 19px -6px rgba(0, 0, 0, 0.75);
-      box-shadow: -2px 0px 19px -6px rgba(0, 0, 0, 0.75); }
+      box-shadow: -2px 0px 19px -6px rgba(0, 0, 0, 0.75);
+      transition: transform 0.5s;
+      cursor: pointer; }
+      .orderSection-list li:hover {
+        transform: scale(1.1); }
     .orderSection-list-icon {
       align-self: center;
-      height: 90px; }
+      height: 98px; }
+  .orderSection-order {
+    margin-bottom: 20px; }
 
 .footer {
   width: 100%;

@@ -1,6 +1,5 @@
 let input = document.querySelector('.orderSection-input');
-let maxOrderPrice = 30;
-maxOrderPrice = Number(maxOrderPrice)
+let maxOrderPrice;
 let finalOrder = [];
 let actualBill= 0; 
 
@@ -29,9 +28,7 @@ function btnHandler(){
 function orderHandler(json){  
     const menu = json
     clearData();
-    removeElements(ul,"order");
     createOrder(menu,finalOrder);
-    buildOrder(finalOrder);
 }   
     
 
@@ -63,7 +60,8 @@ function addToList(json,typeOfOrder,order,size){
 
 
     function createOrder(json,typeOfOrder){
-        maxOrderPrice = input.value;
+        maxOrderPrice = Number(input.value);
+        if (maxOrderPrice === 0){ return alert("Minimalna wartość zamówienia wynosi 3.90zł")}  
         let moneyLeft = maxOrderPrice;
             for(items in json){  //fill the list in products
                 if(Math.floor(actualBill) < maxOrderPrice){
@@ -85,6 +83,8 @@ function addToList(json,typeOfOrder,order,size){
                     break;
                 }
             }
+            removeElements(ul);
+            buildOrder(finalOrder);
     }
     //add every product price to final order
 function addToBill(product,typeOfOrder){
@@ -93,41 +93,49 @@ function addToBill(product,typeOfOrder){
         actualBill +=  typeOfOrder[key].price 
     }
     }
+
+
+
+
+
 function buildOrder(typeOfOrder){//need to be refactored
     for(key in typeOfOrder){
-        newLi = document.createElement('li');
-        newLi.classList.add('order')
-        span = document.createElement('span');
-        span.classList.add('orderSection-order');
-        img = document.createElement('img');
-        img.classList.add('orderSection-list-icon');
+        const createLiEl = document.createElement('li');
+        createLiEl.classList.add('order')
 
-        orderType = typeOfOrder[key].type;
+       const createSpanEl = document.createElement('span');
+       createSpanEl.classList.add('orderSection-order');
+
+       const createImgEl = document.createElement('img');
+       createImgEl.classList.add('orderSection-list-icon');
+
+      const orderType = typeOfOrder[key].type;
         switch (orderType) {
             case'burger':
-                img.src = "img/hamburger.svg";
+            createImgEl.src = "img/hamburger.svg";
             break;
             case 'chickens':
-                img.src = "img/nuggets.svg";
+                createImgEl.src = "img/nuggets.svg";
             break;
             case 'meal':
-                img.src = "img/meal2.svg";
+                createImgEl.src = "img/meal2.svg";
             break;
             case 'drink':
-                img.src = "img/coke.svg";
+                createImgEl.src = "img/coke.svg";
             break;
             case 'fries':
-                img.src = "img/fries.svg";
+                createImgEl.src = "img/fries.svg";
             break;
             case 'wrap':
-                img.src = "img/burrito.svg";
+                createImgEl.src = "img/burrito.svg";
             break;
         }
-        span.innerHTML = typeOfOrder[key].name + ' ' + typeOfOrder[key].price.toFixed(2)+'zł';
-        ul.appendChild(newLi)
-        newLi.appendChild(img);
-        newLi.appendChild(span);
+        createSpanEl.innerHTML = typeOfOrder[key].name + ' ' + typeOfOrder[key].price.toFixed(2)+'zł';
+        ul.appendChild(createLiEl)
+        createLiEl.appendChild(createImgEl);
+        createLiEl.appendChild(createSpanEl);
     }
+
     totalOrderLi = document.createElement('li');
     totalOrderLi.classList.add('order')
 
@@ -135,9 +143,8 @@ function buildOrder(typeOfOrder){//need to be refactored
     totalOrderImg .classList.add('orderSection-list-icon');
     totalOrderImg .src = "img/money.svg";
 
-
-
     totalOrderValue = document.createElement('span');
+    totalOrderValue.classList.add('orderSection-order');
 
     totalOrderValue.innerHTML =` Wartość zamówienia: ${ actualBill.toFixed(2)}zł`;
     totalOrderLi.appendChild(totalOrderImg);
@@ -146,12 +153,11 @@ function buildOrder(typeOfOrder){//need to be refactored
     actualBill = 0
     moneyLeft = maxOrderPrice;
 }
-function removeElements(parent,child){
-   let childs = document.querySelectorAll(`.${child}`);
-  if(childs.length - 1 >= 1){
-    for(i in childs){
-        childs[i].remove();
-    }
-  }else{
+
+
+
+function removeElements(parent){
+    while (parent.firstChild){
+  parent.removeChild(parent.firstChild);
 }
 }
